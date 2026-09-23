@@ -7,6 +7,39 @@ let model = null;
 // Insancia de los materials que se modificarán cuando cambie la textura (se inicializan al cargar el modelo)
 const texturedMaterials = [];
 
+// Loader
+const loaderEl = document.getElementById("loader");
+const loaderText = document.getElementById("loader-text");
+const loaderMessages = [
+  "Compiling shaders",
+  "Aligning polygons",
+  "Baking textures",
+  "Calibrating lights",
+  "Spinning up WebGL",
+  "Unwrapping UVs",
+  "Ray tracing dreams",
+  "Feeding the GPU",
+  "Importing geometries",
+  "Mapping normals",
+  "Optimizing meshes",
+  "Rendering pixels",
+];
+let loaderIndex = 0;
+let loaderInterval;
+
+function startLoader() {
+  loaderText.textContent = loaderMessages[loaderIndex];
+  loaderInterval = setInterval(() => {
+    loaderIndex = (loaderIndex + 1) % loaderMessages.length;
+    loaderText.textContent = loaderMessages[loaderIndex];
+  }, 800);
+}
+
+function stopLoader() {
+  clearInterval(loaderInterval);
+  loaderEl.classList.add("hidden");
+}
+
 // Posición de la cámara
 const camera = new THREE.OrthographicCamera(-3, 3, 3, -3, 0.1, 100);
 camera.position.set(0, 1, 5);
@@ -195,6 +228,8 @@ function addLights(scene) {
  * Inicializa toda la lógica al cargar el DOM
  */
 function init() {
+  startLoader();
+
   const loader = new GLTFLoader();
   loader.load(
     "./scene.gltf",
@@ -226,6 +261,7 @@ function init() {
 
       // Aplica la primera textura
       changeModelTexture(currentTextureIndex);
+      stopLoader();
     },
 
     undefined,
