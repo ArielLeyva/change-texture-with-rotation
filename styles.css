@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, sans-serif;
+  position: relative;
+  background-color: #000000;
+}
+
+.gradient-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+#gradient-old {
+  z-index: -1;
+  opacity: 0.5;
+}
+
+#gradient-new {
+  z-index: -2;
+  opacity: 0;
+}
+
+.canvas-wrapper {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background: #ffffff1d;
+  box-shadow: 5px 5px 5px #000000;
+  border-radius: 3rem;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+}
+
+#canvas-container {
+  width: 100%;
+  height: 100%;
+}
+
+#canvas-container canvas {
+  display: block;
+}
+
+.gradient-0 {
+  background: linear-gradient(
+    121deg,
+    #001818 0%,
+    #186090 33%,
+    #ca5315 67%,
+    #090908 100%
+  );
+}
+.gradient-1 {
+  background: linear-gradient(121deg, #181818 0%, #187890 50%, #057609 100%);
+}
+.gradient-2 {
+  background: linear-gradient(121deg, #304860 0%, #307878 50%, #48c078 100%);
+}
+.gradient-3 {
+  background: linear-gradient(121deg, #39083a 0%, #606060 50%, #710273 100%);
+}
+.gradient-4 {
+  background: linear-gradient(121deg, #741b16 0%, #ef2f25 50%, #8a0c05 100%);
+}
+.gradient-5 {
+  background: linear-gradient(121deg, #0090f0 0%, #065184 50%, #2f86c1 100%);
+}
+.gradient-6 {
+  background: linear-gradient(121deg, #0b0b0b 0%, #787878 50%, #2b2b2b 100%);
+}
