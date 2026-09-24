@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Mockup Texture Change With Rotation</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="gradient-layer gradient-1"></div>
+    <main>
+      <div>
+        <div class="canvas-wrapper">
+          <div id="loader">
+            <div class="loader-text" id="loader-text"></div>
+          </div>
+          <div id="canvas-container"></div>
+        </div>
+      </div>
+
+      <aside id="side-panel" class="side-panel">
+        <div id="preview-square" class="preview-square">
+          <div id="front-preview" class="texture-preview active"></div>
+          <div id="back-preview" class="texture-preview"></div>
+        </div>
+        <div class="control-group">
+          <label for="color-picker">Color</label>
+          <input type="color" id="color-picker" value="#ffffff" />
+        </div>
+        <div class="control-group">
+          <label for="image-input">Imagen Frente</label>
+          <input type="file" id="image-input" accept="image/*" />
+        </div>
+        <div class="control-group">
+          <label for="image-input-back">Imagen Atrás</label>
+          <input type="file" id="image-input-back" accept="image/*" />
+        </div>
+        <button id="toggle-preview">Alternar Vista</button>
+        <button>Vista previa</button>
+        <img id="debug-preview" class="debug-preview" alt="Debug PNG preview" />
+      </aside>
+    </main>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module" src="./preview.js"></script>
+    <script src="./panel.js"></script>
+  </body>
+</html>
